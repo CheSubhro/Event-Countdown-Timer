@@ -1,11 +1,19 @@
 
 import { getEvents, saveEvents } from "./storage.js";
 
+function generateId() {
+  if (globalThis.crypto?.randomUUID) {
+    return globalThis.crypto.randomUUID();
+  }
+
+  return `event-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
+}
+
 export function createEvent(eventData) {
   const events = getEvents();
 
   const newEvent = {
-    id: crypto.randomUUID(),
+    id: generateId(),
     name: eventData.name.trim(),
     description: eventData.description.trim(),
     targetDate: `${eventData.date}T${eventData.time}`,
@@ -37,9 +45,7 @@ export function updateEvent(id, eventData) {
 
 export function deleteEvent(id) {
   const events = getEvents();
-  const filteredEvents = events.filter((event) => event.id !== id);
-
-  return saveEvents(filteredEvents);
+  return saveEvents(events.filter((event) => event.id !== id));
 }
 
 export function getAllEvents() {

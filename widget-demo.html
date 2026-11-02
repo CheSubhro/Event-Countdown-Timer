@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Countdown Widget Demo</title>
+
+  <style>
+    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 15% 20%, #312e81 0, transparent 35%),
+    radial-gradient(circle at 85% 80%, #164e63 0, transparent 35%),
+    #080d1c;
+  font-family: Inter, Arial, sans-serif;
+}
+
+.ect-widget {
+  position: relative;
+  width: min(100%, 760px);
+  padding: 55px 35px;
+  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 75, 0.95),
+    rgba(15, 23, 42, 0.98)
+  );
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 28px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.ect-widget::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 200px;
+  background: #6366f1;
+  filter: blur(100px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.ect-title {
+  position: relative;
+  margin-bottom: 42px;
+  color: #ffffff;
+  font-size: clamp(25px, 5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.ect-countdown {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ect-unit {
+  padding: 27px 10px;
+  background: linear-gradient(
+    145deg,
+    rgba(99, 102, 241, 0.16),
+    rgba(30, 41, 59, 0.7)
+  );
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  border-radius: 20px;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.ect-unit:hover {
+  transform: translateY(-6px);
+  border-color: #818cf8;
+}
+
+.ect-unit span {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(30px, 6vw, 52px);
+  font-weight: 800;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 25px rgba(129, 140, 248, 0.4);
+}
+
+.ect-unit small {
+  display: block;
+  margin-top: 12px;
+  color: #a5b4fc;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ect-date {
+  position: relative;
+  margin-top: 35px;
+  color: #cbd5e1;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+}
+
+@media (max-width: 560px) {
+  .ect-widget {
+    padding: 35px 16px;
+    border-radius: 20px;
+  }
+
+  .ect-title {
+    margin-bottom: 28px;
+  }
+
+  .ect-countdown {
+    gap: 9px;
+  }
+
+  .ect-unit {
+    padding: 20px 4px;
+    border-radius: 13px;
+  }
+
+  .ect-unit small {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .ect-date {
+    font-size: 13px;
+  }
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <div id="event-countdown"></div>
+
+  <script type="module">
+    import { createCountdown } from "./js/widget.js";
+
+    const countdown = createCountdown({
+      targetDate: "2026-12-25T16:12:00",
+      container: "#event-countdown",
+      title: "Christmas Countdown",
+      showDate: true
+    });
+
+    countdown.start();
+  </script>
+
+</body>
+</html>
