@@ -1,0 +1,73 @@
+@media (max-width: 900px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        padding: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-container {
+        width: 94%;
+    }
+
+    .header {
+        height: 70px;
+    }
+
+    .hero {
+        margin-top: 30px;
+        padding: 28px 22px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero .primary-btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        gap: 10px;
+        margin-bottom: 40px;
+    }
+
+    .stat-card {
+        padding: 15px 10px;
+    }
+
+    .stat-card span {
+        font-size: 10px;
+    }
+
+    .stat-card strong {
+        font-size: 24px;
+    }
+
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .countdown-grid {
+        gap: 5px;
+    }
+
+    .time-box {
+        padding: 10px 2px;
+    }
+
+    .time-box strong {
+        font-size: 18px;
+    }
+}
