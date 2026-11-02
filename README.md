@@ -34,3 +34,7 @@ A dedicated countdown page designed to highlight a specific occasion, such as Ch
 The primary goal of EventTimer is to make event tracking easier and more engaging by helping users stay connected to the moments that matter most.
 
 **Make Every Moment Count!**
+
+![Categories](screenshot/1.png)
+![Categories](screenshot/2.png)
+
